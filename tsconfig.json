@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "outDir": "service/src/node"
+  },
+  "extends": "./node/tsconfig.json",
+  "exclude": ["./node/node_modules", "./node/__tests__"]
+}
