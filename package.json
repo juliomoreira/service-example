@@ -3,6 +3,15 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "start": "yarn nodemon",
+    "clean": "mv service service.trash && rimraf service.trash",
+    "link:files": "bash ./linkFiles.sh",
+    "build": "yarn clean && yarn --cwd node && tsc -p tsconfig.json && yarn link:files",
+    "build:incremental": "tsc -p tsconfig.json --incremental",
+    "serve": "node server.js",
+    "test": "vtex-test-tools test --rootDir .",
+    "tdd": "concurrently -n BUILD,JEST -c yellow,red \"yarn:start\" \"yarn:test --watchAll\"",
+    "tddb": "node --inspect-brk node_modules/.bin/vtex-test-tools test --runInBand --watchAll",
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\""
   },

@@ -1,0 +1,6 @@
+{
+  "ignore": ["**/*.test.ts", ".git", "node_modules"],
+  "watch": ["node"],
+  "exec": "yarn build:incremental && yarn serve",
+  "ext": "ts,tsx,json"
+}
